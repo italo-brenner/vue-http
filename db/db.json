@@ -14,11 +14,6 @@
       "titulo": "Aprender Axios",
       "concluido": true,
       "id": 3
-    },
-    {
-      "titulo": "Aprender Java",
-      "concluido": false,
-      "id": 4
     }
   ]
 }

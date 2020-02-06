@@ -12,7 +12,11 @@
 
       <i class="fa fa-pencil-alt"></i>
     </button>
-    <button class="btn btn-danger btn-sm" title="Deletar">
+    <button
+      class="btn btn-danger btn-sm"
+      title="Deletar"
+      @click="$emit('deletar', tarefa)">
+
       <i class="fa fa-trash"></i>
     </button>
   </li>
