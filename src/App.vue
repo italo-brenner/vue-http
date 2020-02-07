@@ -18,11 +18,24 @@
 
 <script>
 
+import axios from 'axios'
+import config from './config/config'
+
 import TarefasLista from './components/TarefasLista.vue'
 
 export default {
     components: {
         TarefasLista
+    },
+    created() {
+      axios.all([
+        axios.get(`${config.apiURL}/tarefas/1`),
+        axios.get(`${config.apiURL}/tarefas/2`)
+      ]).then(response => {
+        const [tarefa1, tarefa2] = response
+        console.log('Tarefa 1', tarefa1)
+        console.log('Tarefa 2', tarefa2)
+      })
     }
 }
 </script>
