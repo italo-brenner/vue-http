@@ -7,20 +7,16 @@ instance.defaults.baseURL = config.apiURL
 
 instance.interceptors.request.use(config => {
     console.log('Interceptando requisição: ', config)
+
     config.data = {
         ...config.data,
         curso: 'Vue JS'
     }
-    return new Promise((resolve, reject) => {
-        console.log('Fazendo requisicao aguardar...')
-        setTimeout(() => {
-            console.log('Fazendo requisicao aguardar...')
-            setTimeout(() => {
-                console.log('Enviando requisição...')
-                resolve(config)
-            }, 2000)
-        })
-    })
+
+    config.headers.common['Authorization'] = `Bearer token_jwt`
+    config.headers.put['Meu-Cabecalho'] = 'Curso VueJS'
+
+    return config
 }, error => {
     console.log('Erro ao fazer requisicao: ', error)
     return Promise.reject(error)
