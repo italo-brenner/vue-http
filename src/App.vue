@@ -27,15 +27,12 @@ export default {
     components: {
         TarefasLista
     },
-    created() {
-      axios.all([
-        axios.get(`${config.apiURL}/tarefas/1`),
-        axios.get(`${config.apiURL}/tarefas/2`)
-      ]).then(response => {
-        const [tarefa1, tarefa2] = response
-        console.log('Tarefa 1', tarefa1)
-        console.log('Tarefa 2', tarefa2)
-      })
+    async created() {
+      const tarefa1 = await axios.get(`${config.apiURL}/tarefas/1`)
+      const tarefa2 = await axios.get(`${config.apiURL}/tarefas/2`)
+      console.log('Requisições simutaneas')
+      console.log('Tarefa 1', tarefa1)
+      console.log('Tarefa 2', tarefa2)
     }
 }
 </script>
